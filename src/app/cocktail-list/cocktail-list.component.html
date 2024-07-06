@@ -1,0 +1,50 @@
+<div>
+  <h1>Filters</h1>
+  <div class="row">
+    <label class="col-4" for="cocktailSearch">Cocktail Name</label>
+    <input
+      type="text"
+      class="col-6 search-box"
+      name="cocktailSearch"
+      [(ngModel)]="searchCocktail"
+      (ngModelChange)="searchData()"
+    />
+  </div>
+</div>
+@if (cockTailDispalyList.length) {
+<div class="list-div row">
+  @for (cocktail of cockTailDispalyList; track $index) {
+
+  <div class="cocktail-card col-6 card">
+    <div class="col-4 img-sec">
+      <img [src]="cocktail.imageUrl" />
+    </div>
+    <div class="col-8 details-col">
+      <h3 [routerLink]="['/detail', cocktail.id]">{{ cocktail.name }}</h3>
+      <span
+        class="icon-star"
+        [attr.id]="'star-' + cocktail.id"
+        (click)="changeFavirote(cocktail.id)"
+        [class.active]="cocktail.isFavorite"
+      ></span>
+      <span
+        class="alcholic-span badge rounded-pill"
+        [ngClass]="cocktail.isAlcoholic ? 'text-bg-primary' : 'text-bg-success'"
+        >{{ cocktail.isAlcoholic ? "Alcoholic" : "Non Alcoholic" }}</span
+      >
+      <div class="ingredients card-text">
+        <ul class="breadcrumb" style="--bs-breadcrumb-divider: '|'">
+          @for (ing of cocktail.ingredients; track $index) {
+          <li class="breadcrumb-item">{{ ing }}</li>
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+  }
+</div>
+} @else {
+<div class="list-div">
+  <h2>No Data Found!</h2>
+</div>
+}

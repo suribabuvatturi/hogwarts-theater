@@ -1,0 +1,52 @@
+.list-div {
+  padding: 10px;
+  justify-content: space-around;
+  margin-top: 3rem;
+}
+
+.cocktail-card {
+  display: flex;
+  flex-direction: row;
+  padding: 0px;
+  border: 1px solid;
+  border-radius: 5px;
+}
+
+.details-col {
+  position: relative;
+  padding-left: 5px;
+  h3 {
+    margin-left: 0px;
+    cursor: pointer;
+  }
+}
+.ingredients {
+  li {
+    font-size: 12px !important;
+  }
+  .breadcrumb-item {
+    padding-left: 3px;
+    &::before {
+      padding-right: 3px;
+    }
+  }
+}
+
+.img-sec {
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.icon-star {
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.search-box {
+  border: 1px solid;
+}
